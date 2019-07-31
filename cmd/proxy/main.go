@@ -316,9 +316,11 @@ func AutoOnlineWithCoordinator(p *proxy.Proxy, name, addr, auth string) {
 }
 
 func AutoOnlineWithFillSlots(p *proxy.Proxy, slots []*models.Slot) {
+	log.Info("Start to fill slots.")
 	if err := p.FillSlots(slots); err != nil {
 		log.PanicErrorf(err, "fill slots failed")
 	}
+	log.Info("End to fill slots.")
 	if err := p.Start(); err != nil {
 		log.PanicErrorf(err, "start proxy failed")
 	}

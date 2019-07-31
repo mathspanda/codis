@@ -169,10 +169,10 @@ func (bc *BackendConn) newBackendReader(round int, config *Config) (*redis.Conn,
 		c.Close()
 		return nil, nil, err
 	}
-	if err := bc.selectDatabase(c, bc.database); err != nil {
-		c.Close()
-		return nil, nil, err
-	}
+	//if err := bc.selectDatabase(c, bc.database); err != nil {
+	//	c.Close()
+	//	return nil, nil, err
+	//}
 
 	tasks := make(chan *Request, config.BackendMaxPipeline)
 	go bc.loopReader(tasks, c, round)

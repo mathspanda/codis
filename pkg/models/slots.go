@@ -10,7 +10,7 @@ const (
 	ForwardSemiAsync
 )
 
-const MaxSlotNum = 1024
+const MaxSlotNum = 16384
 
 type Slot struct {
 	Id     int  `json:"id"`
